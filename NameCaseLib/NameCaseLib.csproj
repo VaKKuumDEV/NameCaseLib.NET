@@ -4,6 +4,27 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>VaKKuum.$(AssemblyName)</PackageId>
+    <Title>VaKKuum.NameCaseLib</Title>
+    <Company>VaKKuum</Company>
+    <RepositoryUrl>https://github.com/VaKKuumDEV/NameCaseLib.NET</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/VaKKuumDEV/NameCaseLib.NET</PackageProjectUrl>
+    <PackageTags>net, dotnet, namecase, namecaselib, имя, фио</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>MIT-LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\MIT-LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
