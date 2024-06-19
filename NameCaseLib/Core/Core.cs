@@ -17,7 +17,7 @@ namespace NameCaseLib.Core
         /// <summary>
         /// Версия языкового файла
         /// </summary>
-        protected static String languageBuild;
+        protected static String languageBuild = null!;
 
         /// <summary>
         /// Готовность системы:
@@ -36,18 +36,18 @@ namespace NameCaseLib.Core
         /// <summary>
         ///  Массив содержит елементы типа Word. Это все слова которые нужно обработать и просклонять
         /// </summary>
-        private WordArray words;
+        private WordArray words = null!;
 
         /// <summary>
         /// Переменная, в которую заносится слово с которым сейчас идет работа
         /// </summary>
-        protected String workingWord;
+        protected String workingWord = null!;
 
         /// <summary>
         /// Метод Last() вырезает подстроки разной длины. Посколько одинаковых вызовов бывает несколько,
         /// то все результаты выполнения кешируются в этом массиве.
         /// </summary>
-        private LastCache workindLastCache;
+        private LastCache workindLastCache = null!;
 
         /// <summary>
         /// Номер последнего использованого правила, устанавливается методом Rule()
@@ -57,7 +57,7 @@ namespace NameCaseLib.Core
         /// <summary>
         /// Массив содержит результат склонения слова - слово во всех падежах
         /// </summary>
-        protected String[] lastResult;
+        protected String[] lastResult = [];
 
         /// <summary>
         /// Количество падежей в языке
@@ -246,7 +246,7 @@ namespace NameCaseLib.Core
                 for (int i = 0; i < rulesLength; i++)
                 {
                     String methodName = String.Format("{0}Rule{1}", rulesName, rulesArray[i]);
-                    bool res = (bool)classType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance).Invoke(this, null);
+                    bool res = (bool)(classType.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance)?.Invoke(this, null) ?? false);
                     if (res)
                     {
                         return true;
@@ -640,7 +640,7 @@ namespace NameCaseLib.Core
             String methodName = genderName + namePartName + "Name";
             SetWorkingWord(word.Name);
 
-            bool res = (bool)this.GetType().GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance).Invoke(this, null);
+            bool res = (bool)(GetType().GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance)?.Invoke(this, null) ?? false);
             if (res)
             {
                 word.NameCases = lastResult;

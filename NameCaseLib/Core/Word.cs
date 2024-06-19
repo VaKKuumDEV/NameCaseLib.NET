@@ -21,7 +21,7 @@ namespace NameCaseLib.Core
         /// <summary>
         /// Вероятность того, что текущей слово относится к или женскому полу
         /// </summary>
-        private GenderProbability manOrWoman;
+        private GenderProbability manOrWoman = null!;
 
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace NameCaseLib.Core
         /// - x - маленькая буква
         /// - X - больная буква
         /// </summary>
-        private LettersMask[] letterMask;
+        private LettersMask[] letterMask = null!;
 
         /// <summary>
         /// Содержит true, если все слово было в верхнем регистре и false, если не было
@@ -46,7 +46,7 @@ namespace NameCaseLib.Core
         /// <summary>
         /// Массив содержит все падежи слова, полученые после склонения текущего слова
         /// </summary>
-        private String[] nameCases;
+        private String[] nameCases = [];
 
         /// <summary>
         /// Номер правила, по которому было произведено склонение текущего слова
